@@ -31,11 +31,7 @@ module.exports = function (grunt) {
         copy: {
             assets: {
                 files: [
-                    {cwd: 'src', expand: true, src: './assets/*', dest: '.build/'}
-                ]
-            },
-            html: {
-                files: [
+                    {cwd: 'src', expand: true, src: './assets/*', dest: '.build/'},
                     {cwd: 'src', expand: true, src: '*.html', dest: '.build/'}
                 ]
             }
@@ -87,14 +83,14 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-eslint');
     grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('bundle', ['clean:all', 'browserify', 'copy']);
+    grunt.registerTask('bundle', ['clean', 'browserify', 'copy']);
     grunt.registerTask('server', ['connect', 'monitoring', 'watch']);
 
     grunt.registerTask('build', ['bundle', 'server']);
 
     grunt.registerTask('default', ['eslint', 'build']);
 
-    grunt.registerTask('test', ['karma:production']);
+    grunt.registerTask('test', ['karma:development']);
 
     grunt.registerTask('monitoring', function() {
         lrload.monitor('.build/js/index.js');
