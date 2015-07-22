@@ -38,7 +38,7 @@ module.exports = function (grunt) {
         },
         watch: {
             all: {
-                files: ['src/**/*.js', 'tests/**/*.js'],
+                files: ['src/**/*.js'],
                 tasks: ['eslint', 'copy'],
                 options: {
                     spawn: false
@@ -90,7 +90,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', ['eslint', 'build']);
 
-    grunt.registerTask('test', ['karma:development']);
+    grunt.registerTask('test', ['karma:production']);
 
     grunt.registerTask('monitoring', function() {
         lrload.monitor('.build/js/index.js');

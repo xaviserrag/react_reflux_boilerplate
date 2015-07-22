@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import TestComponent from './../src/components/TestComponent';
+import TestComponent from './TestComponent';
 
 //const TestUtils = React.addons.TestUtils;
 
