@@ -1,8 +1,8 @@
 'use strict';
 
-import React, { render } from 'react';
-import TestComponent from './TestComponent';
-render(
-    <TestComponent />,
+import React from 'react';
+import ClickGame from './ClickGame';
+React.render(
+    <ClickGame />,
     document.getElementById('main')
 );

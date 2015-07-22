@@ -10,12 +10,12 @@ module.exports = function (grunt) {
         eslint: {
             target: [
                 './src/**/*.js',
-                '!./tests/**/*.spec.js'
+                '!./src/**/*.spec.js'
             ]
         },
         browserify: {
             build: {
-                src: 'src/index.js',
+                src: 'src/components/App.js',
                 dest: '.build/js/index.js',
                 options: {
                     browserifyOptions: {
