@@ -2,4 +2,4 @@
 
 ## Using flux architecture with Reflux
 
-run npm install to start developing
+* run npm install to start developing
