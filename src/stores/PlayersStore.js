@@ -14,6 +14,12 @@ const PlayersStore = Reflux.createStore({
         this.players.push({name: data, score: 0});
         this.trigger(this.players);
     },
+
+    incrementScore: function (player) {
+        player.score++;
+        this.trigger(this.players);
+    },
+
     getInitialState: function () {
         this.players = [
             {name: 'Carles', score: 0},

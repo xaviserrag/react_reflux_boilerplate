@@ -16,7 +16,7 @@ export default React.createClass({
     render() {
         return (
             <div className="header">
-                <input type="text" ref="playerName" placeholder="Type your name" />
+                <input type="text" ref="playerName" placeholder="Type your name"/>
                 <button type="button" onClick={this.submitPlayerName}>+</button>
             </div>
         );
