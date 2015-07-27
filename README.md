@@ -24,7 +24,7 @@ The structure of the project is composed following the three basic elements of F
 - Stores
 - Controller views - Components
 
-# First of all
+# Data structure - first of all
 We are gonna split the information in two arrays of data:
 
  - List : Array of data that contains the static information (name). The order of that array never changes.
