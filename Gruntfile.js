@@ -37,8 +37,13 @@ module.exports = function (grunt) {
             },
             bootstrap: {
                 files: [
-                    {cwd: 'node_modules', expand: true, src: './bootstrap/dist/**/bootstrap.css', dest: '.build/'},
+                    {cwd: 'node_modules', expand: true, src: './bootstrap/dist/**/bootstrap.min.css', dest: '.build/'},
                     {cwd: 'node_modules', expand: true, src: './bootstrap/dist/**/bootstrap.js', dest: '.build/'}
+                ]
+            },
+            jQuery: {
+                files: [
+                    {cwd: 'node_modules', expand: true, src: './jquery/dist/**/jquery.min.js', dest: '.build/'}
                 ]
             }
         },
