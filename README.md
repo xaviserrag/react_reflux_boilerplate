@@ -16,7 +16,7 @@ Also we are gonna use with grunt that tools:
  - LiveReactLoad
  - ESLINT
 
-The structure of the project is composes following the three basic elements of FLUX architecture:
+The structure of the project is composed following the three basic elements of FLUX architecture:
 
 - Actions
 - Stores
