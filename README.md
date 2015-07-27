@@ -141,11 +141,11 @@ After that we call our sort players and we do a trigger to all of our subscribed
 
 ClickGame is basically a wrapper for all the components. Holds a title and three more components:
 
- - ###Header
+ ### Header
 
 Header is a component used to add new players to the game. That component has a input and a simple function to catch the input value, send it to the action and reset the input box.
 
- - ###ClickableArea
+ ### ClickableArea
 
 ClickableArea has a list of players with a related button. That button will increment the score leaderBoard counter by one.
 
