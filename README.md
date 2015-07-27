@@ -1,6 +1,6 @@
-# React boilerplate and example - Click competition game
+# React boilerplate and example
+# Click competition game
 ## Using flux architecture with Reflux library and ES6
----------------------------------------
 
 # Let's do it
 Run
@@ -8,7 +8,7 @@ Run
     npm install
 
 
-## Structure
+# Tools and libraries
 We are gonna use [Reflux](https://github.com/spoike/refluxjs) for this project.
 
 Also we are gonna use with grunt that tools:
@@ -24,58 +24,45 @@ The structure of the project is composed following the three basic elements of F
 - Stores
 - Controller views - Components
 
-###Actions
----------------------------------------
+# First of all
+We are gonna split the information in two arrays of data:
 
-In that file we only define the actions without apply a logic to them. We will apply the logic on the store.
+ - List : Array of data that contains the static information (name). The order of that array never changes.
+ - LeaderBoard: dynamic array that contains the same information as list + ID and SCORE.
+
+## Let's talk about how our application works:
+
+On each button click you will fire a onClick event that calls a action, that action send a signal to our store and calls the incrementScore function.
+Our incrementScore function will find our player on the LeaderBoard array using our ID  increment the score by one and sort the leaderBoard list. After that we will trigger our changes to all subscribed components.
+
+## The problem:
+If we only have one array for hold all players information on each array reorder we will render all of our components and the two components(clickableArea and leaderBoard) will be reordered.
+We need to have our players list connected to store because we need to know when new user is added but also we need to dismiss all array reorder changes...
+
+## The solution:
+We will have two arrays, as you can see, to hold our information.
+One with a static order and another with a dynamic order connected by a KEY sended on each click to find our player on LB list. 
+
+# Actions
+---------------------------------------
 
 The file holds two actions:
 
  - Add player
  - Increment counter
  
-###Stores
+# Stores
  
 ---------------------------------------
 
-#First of all
-We are gonna split the information in two arrays of data:
+## Methods explained:
 
- - List : Array of data that contains the static information (name). The order of that array never changes.
- - LeaderBoard: dynamic array that contains the same information as list + ID and SCORE.
- 
-#Why we are using two data arrays:
-
-##First of all let's talk about how our application works:
-
-On each button click you will fire a onClick event that calls a action, that action send a signal to our store and calls the incrementScore function.
-Our incrementScore function will find our player on the LeaderBoard array using our ID and will increment the score by one. After that we will trigger our changes to all subscribed components.
-
-##The problem:
-If we only have one array for hold all players information on each array reorder we will render all of our components and the two components(clickableArea and leaderBoard) will be reordered.
-We need to have our players list connected to store because we need to know when new user is added but also we need to dismiss all array reorder changes...
-
-###The solution:
-We will have two arrays, as you can see, to hold our information.
-One with a static order and another with a dynamic order connected by a KEY sended on each click to find our player on LB list. 
-
-# Store structure:
-####Listenables
-
-The following line define what actions are we gonna listen from store.
-
-    listenables: [PlayerActions],
-    
-We just need to define that line and set our store functions with the same name that we have in our action dispatcher.
-
-For example:
+Increment score will be fired when we call the action incrementScore from the component clicking a button.
 
         incrementScore: function (player) {
             player.score++;
             this.trigger(this.players);
         }
-        
-Increment score will be fired when we call the action incrementScore from the component clicking a button.
 
 Get initial state will set our init information:
 
@@ -142,19 +129,19 @@ After that we call our sort players and we do a trigger to all of our subscribed
         this.trigger(this.players.leaderBoard);
     }
 
-###Components
+#Components
  
 ---------------------------------------
 
-####ClickGame
+##ClickGame
 
 ClickGame is basically a wrapper for all the components. Holds a title and three more components:
 
-####Header
+ - ###Header
 
 Header is a component used to add new players to the game. That component has a input and a simple function to catch the input value, send it to the action and reset the input box.
 
-####ClickableArea
+ - ###ClickableArea
 
 ClickableArea has a list of players with a related button. That button will increment the score leaderBoard counter by one.
 
@@ -204,7 +191,7 @@ Get items will loop through our players saving on a array PlayerItems components
         return items;
     },
  
-####LeaderBoard
+ - ###LeaderBoard
 
 Leader board has the same function structure of ClickableArea, but in that case we will call BoardItems instead of call PlayerItems
 
