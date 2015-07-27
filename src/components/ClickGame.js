@@ -1,11 +1,10 @@
 'use strict';
 
 import React from 'react';
-import Reflux from 'reflux';
 
-import PlayersStore from '../stores/PlayersStore.js';
 import Header from '../components/Header.js';
 import ClickableArea from '../components/ClickableArea.js';
+import LeaderBoard from '../components/LeaderBoard.js';
 
 export default React.createClass({
     render() {
@@ -18,6 +17,7 @@ export default React.createClass({
                     <Header />
                 </div>
                     <ClickableArea />
+                    <LeaderBoard />
             </div>
         );
     }

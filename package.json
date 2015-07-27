@@ -43,7 +43,10 @@
     "phantomjs": "^1.9.17",
     "react": "~0.13.3",
     "reactify": "~1.1.1",
-    "reflux": "^0.2.10"
+    "reflux": "^0.2.10",
+    "bootstrap": "~3.3.5",
+    "jQuery": "~1.7.4",
+    "jquery": "~2.1.4"
   },
   "browserify": {
     "transform": [

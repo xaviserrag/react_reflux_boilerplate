@@ -14,7 +14,6 @@ const PlayersStore = Reflux.createStore({
     players: {},
 
     getInitialState: function () {
-
         this.players.list = [
             {name: 'Carles'},
             {name: 'Xavi'},
@@ -30,7 +29,7 @@ const PlayersStore = Reflux.createStore({
         return this.players;
     },
 
-    init: function(){
+    init: function () {
         this.getInitialState();
     },
 
@@ -52,8 +51,12 @@ const PlayersStore = Reflux.createStore({
         this.trigger(this.players.list);
     },
 
-    getPlayers: function () {
+    getPlayersList: function () {
         return this.players.list;
+    },
+
+    getPlayersLB: function () {
+        return this.players.leaderBoard;
     },
 
     incrementScore: function (playerId) {

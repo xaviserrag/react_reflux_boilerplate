@@ -6,11 +6,11 @@ import PlayerItem from '../components/PlayerItem.js';
 import PlayersStore from '../stores/PlayersStore.js';
 
 function getPlayers() {
-    return {players: PlayersStore.getPlayers()};
+    return {players: PlayersStore.getPlayersList()};
 }
 
 export default React.createClass({
-   mixins: [Reflux.ListenerMixin],
+    mixins: [Reflux.ListenerMixin],
 
     //We define the propTypes for improve reusability
     propTypes: {
@@ -18,16 +18,16 @@ export default React.createClass({
     },
 
     componentDidMount: function () {
-       this.listenTo(PlayersStore, this.refreshList);
+        this.listenTo(PlayersStore, this.refreshList);
     },
 
     getInitialState: function () {
         return getPlayers();
     },
 
-    refreshList: function() {
+    refreshList: function () {
         this.setState({
-            players: PlayersStore.getPlayers()
+            players: PlayersStore.getPlayersList()
         });
     },
 
@@ -36,7 +36,7 @@ export default React.createClass({
             i, len = this.state.players.length;
 
         for (i = 0; i < len; i++) {
-            items.push(<PlayerItem key={i} player={this.state.players[i]} index={i}/>);
+            items.push(<PlayerItem key={i} name={this.state.players[i].name} index={i}/>);
         }
 
         this.counter++;
