@@ -15,12 +15,14 @@ export default React.createClass({
 
     render() {
         return (
-            <li>
-                <span className="entity-name">{this.props.name}</span>
-                <button className="entity-button" type="button" onClick={this.incrementScore}>
-                    +
-                </button>
-            </li>
+            <div className="row clickableArea">
+                <span className="col-md-7 item-span">{this.props.name}</span>
+                <span className="col-md-1">
+                    <button className="btn btn-success item-btn" type="button" onClick={this.incrementScore}>
+                        +
+                    </button>
+                </span>
+            </div>
         );
     }
 });

@@ -15,9 +15,11 @@ export default React.createClass({
 
     render() {
         return (
-            <div className="header">
-                <input type="text" ref="playerName" placeholder="Type your name"/>
-                <button type="button" onClick={this.submitPlayerName}>+</button>
+            <div className="input-group">
+                <input type="text" className="form-control" ref="playerName" placeholder="Type your name"/>
+                <span className="input-group-btn">
+                    <button className="btn btn-primary" type="button" onClick={this.submitPlayerName}>Add</button>
+                </span>
             </div>
         );
     }

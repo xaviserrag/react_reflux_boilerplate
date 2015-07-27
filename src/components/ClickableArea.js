@@ -45,9 +45,9 @@ export default React.createClass({
 
     render() {
         return (
-            <ul className="clickableArea">
+            <div className="col-md-6">
                 {this.getItems()}
-            </ul>
+            </div>
         );
     }
 })

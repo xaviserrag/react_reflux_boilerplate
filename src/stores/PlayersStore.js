@@ -13,7 +13,7 @@ const PlayersStore = Reflux.createStore({
 
     players: {},
 
-    getInitialState: function () {
+    getInitialState() {
         this.players.list = [
             {name: 'Carles'},
             {name: 'Xavi'},
@@ -29,11 +29,11 @@ const PlayersStore = Reflux.createStore({
         return this.players;
     },
 
-    init: function () {
+    init() {
         this.getInitialState();
     },
 
-    sortPlayers: function sortPlayers() {
+    sortPlayers() {
         this.players.leaderBoard.sort(function (previous, current) {
             let result = 0;
             if (previous.score < current.score) {
@@ -45,21 +45,21 @@ const PlayersStore = Reflux.createStore({
         });
     },
 
-    addPlayer: function (data) {
+    addPlayer(data) {
         let id = this.players.list.push({name: data}) - 1;
         this.players.leaderBoard.push({name: data, score: 0, id: id});
         this.trigger(this.players.list);
     },
 
-    getPlayersList: function () {
+    getPlayersList() {
         return this.players.list;
     },
 
-    getPlayersLB: function () {
+    getPlayersLB() {
         return this.players.leaderBoard;
     },
 
-    incrementScore: function (playerId) {
+    incrementScore(playerId) {
         this.players.leaderBoard.find(x => x.id === playerId).score++;
         this.sortPlayers();
         this.trigger(this.players.leaderBoard);

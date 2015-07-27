@@ -14,10 +14,10 @@ export default React.createClass({
 
     render() {
         return (
-            <li>
-                <span className="entity-name">{this.props.player.name}</span>
-                <span className="entity-name">{this.props.player.score}</span>
-            </li>
+            <div className="row item">
+                <span className="col-md-7 item-span">{this.props.player.name}</span>
+                <span className="col-md-5 item-span">{this.props.player.score}</span>
+            </div>
         );
     }
 });

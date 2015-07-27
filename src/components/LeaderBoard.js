@@ -55,9 +55,9 @@ export default React.createClass({
 
     render() {
         return (
-            <ul className="leaderBoard">
+            <div className="col-md-6">
                 {this.getItems()}
-            </ul>
+            </div>
         );
     }
 });
