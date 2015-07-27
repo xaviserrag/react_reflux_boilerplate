@@ -1,5 +1,4 @@
 # React boilerplate and example
-# Click competition game
 ## Using flux architecture with Reflux library and ES6
 
 # Let's do it
@@ -13,10 +12,10 @@ We are gonna use [Reflux](https://github.com/spoike/refluxjs) for this project.
 
 Also we are gonna use with grunt that tools:
 
- - Babelify
- - Browserify
- - LiveReactLoad
- - ESLINT
+ - [Babelify](https://github.com/babel/babelify)
+ - [Browserify](http://browserify.org/)
+ - [LiveReactLoad](https://github.com/milankinen/livereactload)
+ - [ESLINT](http://eslint.org/)
 
 The structure of the project is composed following the three basic elements of FLUX architecture:
 
