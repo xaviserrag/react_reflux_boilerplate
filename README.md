@@ -3,7 +3,10 @@
 ---------------------------------------
 
 # Let's do it
-    run npm install to start developing
+Run
+
+    npm install
+to start developing
 
 
 ## Structure
