@@ -42,8 +42,15 @@ We need to have our players list connected to store because we need to know when
 We will have two arrays, as you can see, to hold our information.
 One with a static order and another with a dynamic order connected by a KEY sended on each click to find our player on LB list. 
 
-# Actions
+
+
 ---------------------------------------
+
+
+
+
+# Actions
+
 
 The file holds two actions:
 
@@ -52,7 +59,6 @@ The file holds two actions:
  
 # Stores
  
----------------------------------------
 
 ## Methods explained:
 
@@ -130,7 +136,6 @@ After that we call our sort players and we do a trigger to all of our subscribed
 
 #Components
  
----------------------------------------
 
 ##ClickGame
 
