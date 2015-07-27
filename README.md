@@ -6,7 +6,6 @@
 Run
 
     npm install
-to start developing
 
 
 ## Structure
@@ -42,8 +41,8 @@ The file holds two actions:
 #First of all
 We are gonna split the information in two arrays of data:
 
- - List : Array of data that contains the static information (Name) the order of the array never changes.
- - LeaderBoard: dynamic array that contains the same information as list plus ID and SCORE.
+ - List : Array of data that contains the static information (name). The order of that array never changes.
+ - LeaderBoard: dynamic array that contains the same information as list + ID and SCORE.
  
 #Why we are using two data arrays:
 
@@ -53,15 +52,12 @@ On each button click you will fire a onClick event that calls a action, that act
 Our incrementScore function will find our player on the LeaderBoard array using our ID and will increment the score by one. After that we will trigger our changes to all subscribed components.
 
 ##The problem:
-If we only have one array for hold all players information on each array reorder we will render all of our components and the two lists(players and leaderBoard) will be reordered.
+If we only have one array for hold all players information on each array reorder we will render all of our components and the two components(clickableArea and leaderBoard) will be reordered.
 We need to have our players list connected to store because we need to know when new user is added but also we need to dismiss all array reorder changes...
 
 ###The solution:
 We will have two arrays, as you can see, to hold our information.
-One with a static order and another with a dynamic order connected by a KEY sended on each click to can find our player on LB list. 
-
-
-That file contains the data model and some logic to make the things work. It is composed by:
+One with a static order and another with a dynamic order connected by a KEY sended on each click to find our player on LB list. 
 
 # Store structure:
 ####Listenables
