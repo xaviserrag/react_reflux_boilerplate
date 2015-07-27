@@ -8,7 +8,7 @@ Run
 
 
 # Tools and libraries
-We are gonna use [Reflux](https://github.com/spoike/refluxjs) for this project.
+We are gonna use [Flux](https://facebook.github.io/flux) architecture with [Reflux](https://github.com/spoike/refluxjs) for this project.
 
 Also we are gonna use with grunt that tools:
 
