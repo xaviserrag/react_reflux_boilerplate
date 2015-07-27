@@ -9,16 +9,14 @@ export default React.createClass({
     },
 
     incrementScore: function () {
-        PlayersActions.incrementScore(this.props.index);
+        PlayersActions.incrementScore(this.props.player);
     },
 
     render() {
         return (
             <li>
                 <span className="entity-name">{this.props.player.name}</span>
-                <button className="entity-button" type="button" onClick={this.incrementScore}>
-                    +
-                </button>
+                <span className="entity-name">{this.props.player.score}</span>
             </li>
         );
     }

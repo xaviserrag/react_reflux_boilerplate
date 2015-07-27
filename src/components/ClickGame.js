@@ -8,8 +8,6 @@ import Header from '../components/Header.js';
 import ClickableArea from '../components/ClickableArea.js';
 
 export default React.createClass({
-    mixins: [Reflux.connect(PlayersStore, 'players')],
-
     render() {
         return (
             <div>
@@ -19,7 +17,7 @@ export default React.createClass({
                 <div className="header-parent">
                     <Header />
                 </div>
-                    <ClickableArea players={this.state.players}/>
+                    <ClickableArea />
             </div>
         );
     }

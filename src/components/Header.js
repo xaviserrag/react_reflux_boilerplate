@@ -2,9 +2,10 @@
 
 import React from 'react';
 import PlayersActions from '../actions/PlayersActions';
-//import Reflux from 'reflux';
+import Reflux from 'reflux';
 
 export default React.createClass({
+
     submitPlayerName() {
         let input = this.refs.playerName.getDOMNode();
         if (input.value) {
