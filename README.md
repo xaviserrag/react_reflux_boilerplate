@@ -32,7 +32,7 @@ We are gonna split the information in two arrays of data:
 ## Let's talk about how our application works:
 
 On each button click you will fire a onClick event that calls a action, that action send a signal to our store and calls the incrementScore function.
-Our incrementScore function will find our player on the LeaderBoard array using our ID  increment the score by one and sort the leaderBoard list. After that we will trigger our changes to all subscribed components.
+Our incrementScore function will find our player on the LeaderBoard array using our ID  increment the score by one and sort the leaderBoard list. After that we will trigger our changes to all subscribed components(GameItems).
 
 ## The problem:
 If we only have one array for hold all players information on each array reorder we will render all of our components and the two components(clickableArea and leaderBoard) will be reordered.
@@ -58,7 +58,6 @@ The file holds two actions:
  - Increment counter
  
 # Stores
- 
 
 ## Methods explained:
 
@@ -115,15 +114,11 @@ Add player will add our new player to the two arrays. On the leaderBoard array w
         this.trigger(this.players.list);
     }
 
-We also have two getters:
+We also have one getters:
 
-    getPlayersList: function () {
-        return this.players.list;
+    getPlayers: function () {
+        return this.players;
     },
-
-    getPlayersLB: function () {
-        return this.players.leaderBoard;
-    }
     
 Finally we have our incrementScore function that recibes our player ID, finds it on our leaderBoard array and increments the score by one.
 After that we call our sort players and we do a trigger to all of our subscribed components.
@@ -139,34 +134,31 @@ After that we call our sort players and we do a trigger to all of our subscribed
 
 ##ClickGame
 
-ClickGame is basically a wrapper for all the components. Holds a title and three more components:
+ClickGame is basically a wrapper for all the components. Holds a title and a controller view:
 
 ### Header
 
 Header is a component used to add new players to the game. That component has a input and a simple function to catch the input value, send it to the action and reset the input box.
 
-### ClickableArea
 
-ClickableArea has a list of players with a related button. That button will increment the score leaderBoard counter by one.
+### GameItems - Controller View
+
+Game items is who rules all the game subcomponents. Basically is who have a connection with the store.
+
+Updates and append the data to their childs to be updated when we need.
 
 Let's se the code:
 
 We are gonna mixin with ListenerMixin, that will help us to listen to our store and dispatch custom functions.
 
     mixins: [Reflux.ListenerMixin],
-    
-Used to define the type of our components properties. Is important use that to improve the reusability of our component.
-
-    propTypes: {
-            players: React.PropTypes.array
-        }
 
 React function called on component creation. We will listen any change in PlayersStore and call our callback
 
     componentDidMount: function () {
             this.listenTo(PlayersStore, this.refreshList);
     }
-
+    
 React function called on component creation to hold on state property the data returned by getPlayers()
 
     getInitialState: function () {
@@ -181,14 +173,26 @@ Refresh list is the callback used on our listenTo.
         });
     }
     
+### ClickableArea
+
+ClickableArea has a list of players with a related button. That button will increment the score leaderBoard counter by one.
+
+
+    
+Used to define the type of our components properties. Is important use that to improve the reusability of our component.
+
+    propTypes: {
+            players: React.PropTypes.array
+        }
+
 Get items will loop through our players saving on a array PlayerItems components. We will send key and index to connect our to array of data.
 
     getItems: function () {
         let items = [],
-            i, len = this.state.players.length;
+            i, len = this.props.players.length;
 
         for (i = 0; i < len; i++) {
-            items.push(<PlayerItem key={i} name={this.state.players[i].name} index={i}/>);
+            items.push(<PlayerItem key={i} name={this.props.players[i].name} index={i}/>);
         }
 
         this.counter++;

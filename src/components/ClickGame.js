@@ -2,9 +2,8 @@
 
 import React from 'react';
 
-import Header from '../components/Header.js';
-import ClickableArea from '../components/ClickableArea.js';
-import LeaderBoard from '../components/LeaderBoard.js';
+import Header from '../components/Header';
+import GameItems from '../components/GameItems';
 
 export default React.createClass({
     render() {
@@ -17,8 +16,7 @@ export default React.createClass({
                     <Header />
                 </div>
                 <div className="col-md-10 secondary-box center">
-                    <ClickableArea />
-                    <LeaderBoard />
+                    <GameItems />
                 </div>
             </div>
         );

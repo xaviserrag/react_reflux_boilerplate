@@ -51,12 +51,8 @@ const PlayersStore = Reflux.createStore({
         this.trigger(this.players.list);
     },
 
-    getPlayersList() {
-        return this.players.list;
-    },
-
-    getPlayersLB() {
-        return this.players.leaderBoard;
+    getPlayers() {
+        return this.players;
     },
 
     incrementScore(playerId) {
